@@ -1,5 +1,28 @@
 # video_automation
 video_automation DIY ideas on how to make my life easier for content creation
+
+## MVP CLI (Linux/macOS)
+A minimal script to rotate and split videos using FFmpeg.
+
+Setup:
+```bash
+chmod +x ./video_automation.sh
+```
+
+Examples:
+```bash
+# Split 60s segments (fast, stream copy when possible)
+./video_automation.sh -i GX020250.MP4 -t 60 -o ./output
+
+# Force 180° rotate and split (re-encodes video)
+./video_automation.sh -i GX020250.MP4 --rotate 180 -t 60 -o ./output
+
+# Batch process a directory (auto-respect camera rotate metadata)
+./video_automation.sh -D ./videos --rotate auto -t 60 -o ./output
+```
+
+Prerequisites: FFmpeg installed and on PATH. On Linux: `sudo apt install ffmpeg`. On macOS: `brew install ffmpeg`.
+
 # 1st lets download the https://www.gyan.dev/ffmpeg/builds/
 # better to use choco install 
 choco install ffmpeg-full
